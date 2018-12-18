@@ -1,5 +1,5 @@
-import LinearModel
-
+from LinearModel import LinearModel
+import numpy as np
 class LinearRegress(LinearModel): 
     """ 
         LinearRegress class 
@@ -14,21 +14,24 @@ class LinearRegress(LinearModel):
 
     def add_ones(self, X):
         """
-            add a column basis to X input matrix
+            add's a column basis to X input matrix
         """
         return LinearModel.add_ones(self,X)
     
     # train lease-squares model
     def train(self, X, T):
-
-        ## TODO: replace this with your codes
+        """
+            train's the weights using normal equation
+        """
         X1 = self.add_ones(X)
         self.w =  np.linalg.inv(X1.T @ X1) @ X1.T @ T
         
     
     # apply the learned model to data X
     def use(self, X):
-        ## TODO: replace this with your codes
+        """
+            uses the weights to predict the output
+        """
         X1 = self.add_ones(X)
         y = X1 @ self.w
         return y

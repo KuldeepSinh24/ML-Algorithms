@@ -1,4 +1,6 @@
-import BaseModel
+from BaseModel import BaseModel
+from abc import ABC, abstractmethod
+import numpy as np
 
 class LinearModel(BaseModel):
     """
@@ -14,7 +16,7 @@ class LinearModel(BaseModel):
         """
             weight vector w is initialized as None
         """
-        self.w = np.zeros((X.shape[1]+1))
+        self.w = None
 
     def _check_matrix(self, mat, name):
         if len(mat.shape) != 2:
