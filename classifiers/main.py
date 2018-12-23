@@ -1,8 +1,8 @@
+from Pocket import PocketAlgorithm 
 import numpy as np
 import matplotlib.pyplot as plt
 
 def main():
-
     mu1 = [-1, -1]
     cov1 = np.eye(2)
 
@@ -23,7 +23,7 @@ def main():
     T = np.ones(N)
     T[:50] *= -1 
 
-    pocket = PocketAlgorithm()
+    pocket = PocketAlgorithm(X)
     pocket.train(X,T)
     xt = np.array([-2, 5])
     yt = -pocket.w_pocket[0] * xt / pocket.w_pocket[1]

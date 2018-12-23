@@ -6,7 +6,7 @@ class PocketAlgorithm(Classifier):
     """
         class for Pocket Algorithm 
     """
-    def __init__(self,maxiter=500,alpha=0.1):
+    def __init__(self,X,maxiter=500,alpha=0.1):
         Classifier.__init__(self)
         self.w = np.zeros((X.shape[1]))
         self.w_pocket = copy(self.w)
